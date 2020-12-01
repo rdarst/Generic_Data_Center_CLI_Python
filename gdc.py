@@ -27,7 +27,7 @@ if len(sys.argv) <= 4:
    print("Delete an IP address to a Generic Data Center to an existing JSON file")
    print("gdc.py -g GDC_LIST1 -j gdc.json -f DelIP -i 10.2.0.1")
    print("")
-   print("Add a new Generic Data Center to an existing JSON file.  IP address must be indcluded.")
+   print("Add a new Generic Data Center to an existing JSON file.  IP address must be included.")
    print("gdc.py -g GDC_LIST_New -j gdc.json -f AddGDC -d GDC_LIST_NEW_Description -i 10.2.0.1")
    print("")
    print("Delete a Generic Data Center in an existing JSON file. ")
