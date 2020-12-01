@@ -1,4 +1,4 @@
-# Generic_Data_Center_CLI_Python
+# Generic Data Center CLI Python
 
 This simple tool will update a JSON file with ip addresses (v4 and v6) used with the Generic Data Center Objects as described in SK167210 for R81.
 
