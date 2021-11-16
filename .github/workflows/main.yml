@@ -39,7 +39,7 @@ jobs:
     container: checkpoint/shiftleft:latest
     steps:
       - name: Install latest git 
-        run: apt update && apk upgrade && apk add git
+        run: apk update && apk upgrade && apk add git
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
