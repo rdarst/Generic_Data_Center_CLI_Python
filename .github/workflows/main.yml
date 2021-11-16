@@ -41,12 +41,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      # Pull ShiftLeft creds
-      - name: Run ShiftLeft Source Code Scan
+      - name: Run in ShiftLeft Container
         env: 
           CHKP_CLOUDGUARD_ID: ${{ secrets.CHKP_CLOUDGUARD_ID }}
           CHKP_CLOUDGUARD_SECRET: ${{ secrets.CHKP_CLOUDGUARD_SECRET }}
-      
-      - name: Run in ShiftLeft Container
         run: shiftleft code-scan -D -s .
   
