@@ -38,8 +38,8 @@ jobs:
     runs-on: ubuntu-latest
     container: checkpoint/shiftleft:latest
     steps:
-      - name: Force Install GIT latest
-        run: git --version
+      - name: Install latest git 
+        run: apt update && apk upgrade && apk add git
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -48,5 +48,5 @@ jobs:
         env: 
           CHKP_CLOUDGUARD_ID: ${{ secrets.CHKP_CLOUDGUARD_ID }}
           CHKP_CLOUDGUARD_SECRET: ${{ secrets.CHKP_CLOUDGUARD_SECRET }}
-        run: ls -la ;ls -la .github ; shiftleft code-scan -s .
+        run: shiftleft code-scan -s .
   
