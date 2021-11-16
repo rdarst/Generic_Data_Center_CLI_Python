@@ -45,5 +45,7 @@ jobs:
         env: 
           CHKP_CLOUDGUARD_ID: ${{ secrets.CHKP_CLOUDGUARD_ID }}
           CHKP_CLOUDGUARD_SECRET: ${{ secrets.CHKP_CLOUDGUARD_SECRET }}
-        run: shiftleft code-scan -s .
+          CHKP_TEST: "testing123"
+        run: echo $CHKP_CLOUDGUARD_ID;echo $CHKP_TEST
+             shiftleft code-scan -s .
   
