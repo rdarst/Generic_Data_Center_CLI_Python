@@ -46,6 +46,5 @@ jobs:
           CHKP_CLOUDGUARD_ID: ${{ secrets.CHKP_CLOUDGUARD_ID }}
           CHKP_CLOUDGUARD_SECRET: ${{ secrets.CHKP_CLOUDGUARD_SECRET }}
           CHKP_TEST: "testing123"
-        run: echo $CHKP_CLOUDGUARD_ID;echo $CHKP_TEST
-             shiftleft code-scan -s .
+        run: echo $CHKP_CLOUDGUARD_ID;echo $CHKP_TEST;echo $CHKP_CLOUDGUARD_SECRET; shiftleft code-scan -s .
   
