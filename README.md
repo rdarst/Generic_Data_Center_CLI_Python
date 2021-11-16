@@ -1,6 +1,6 @@
 # Generic Data Center CLI Python
 
-This simple tool will update a JSON file with ip addresses (v4 and v6) used with the Generic Data Center Objects as described in SK167210 for Check Point release R81.
+This simple tool will update a JSON file with ip addresses (v4 and v6) used with the Generic Data Center Objects as described in SK167210 for Check Point release R81 or R81.10.
 
 Simple lists of IP's can also be added/deleted by using the -l option.
 
