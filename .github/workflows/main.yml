@@ -37,7 +37,7 @@ jobs:
         run: |
            docker build -t rdarst/gdc-python .
            docker save -o gdc-python.tar rdarst/gdc-python
-           docker run -it --rm -e CHKP_CLOUDGUARD_ID -e CHKP_CLOUDGUARD_SECRET -v $PWD:$PWD -w $PWD checkpoint/shiftleft shiftleft image-scan -i gdc-python.tar
+           docker run --rm -e CHKP_CLOUDGUARD_ID -e CHKP_CLOUDGUARD_SECRET -v $PWD:$PWD -w $PWD checkpoint/shiftleft shiftleft image-scan -i gdc-python.tar
            #./shiftleft image-scan -i gdc-python.tar
   container:
     runs-on: ubuntu-latest
