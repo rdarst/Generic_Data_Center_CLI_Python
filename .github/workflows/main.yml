@@ -31,6 +31,9 @@ jobs:
 
       # Build the docker image and scan with ShiftLeft
       - name: Run a multi-line script
+        env: 
+           CHKP_CLOUDGUARD_ID: ${{ secrets.CHKP_CLOUDGUARD_ID }}
+           CHKP_CLOUDGUARD_SECRET: ${{ secrets.CHKP_CLOUDGUARD_SECRET }}
         run: |
            docker build -t rdarst/gdc-python .
            docker save -o gdc-python.tar rdarst/gdc-python
