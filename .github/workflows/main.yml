@@ -37,6 +37,8 @@ jobs:
         run: |
            docker build -t rdarst/gdc-python .
            docker save -o gdc-python.tar rdarst/gdc-python
+           pwd
+           echo ${{ GITHUB_ACTION_PATH }}
            ./shiftleft image-scan -i gdc-python.tar
   container:
     runs-on: ubuntu-latest
