@@ -30,7 +30,7 @@ jobs:
         run: curl -O https://shiftleft-prod.s3.amazonaws.com/blades/shiftleft/bin/linux/amd64/0.0.34/shiftleft; chmod +x shiftleft; 
 
       # Build the docker image and scan with ShiftLeft
-      - name: Run a multi-line script
+      - name: Build the Docker image and scan with ShiftLeft
         env: 
            CHKP_CLOUDGUARD_ID: ${{ secrets.CHKP_CLOUDGUARD_ID }}
            CHKP_CLOUDGUARD_SECRET: ${{ secrets.CHKP_CLOUDGUARD_SECRET }}
