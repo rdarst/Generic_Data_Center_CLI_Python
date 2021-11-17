@@ -25,10 +25,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Download the shiftleft binary
-      - name: Download ShiftLeft
-        run: curl -O https://shiftleft-prod.s3.amazonaws.com/blades/shiftleft/bin/linux/amd64/0.0.34/shiftleft; chmod +x shiftleft; 
-
       # Build the docker image and scan with ShiftLeft
       - name: Build the Docker image and scan with ShiftLeft
         env: 
@@ -37,12 +33,12 @@ jobs:
         run: |
            docker build -t rdarst/gdc-python .
            docker save -o gdc-python.tar rdarst/gdc-python
-           #docker run --rm -e CHKP_CLOUDGUARD_ID -e CHKP_CLOUDGUARD_SECRET -v $PWD:$PWD -w $PWD checkpoint/shiftleft shiftleft image-scan -i gdc-python.tar
-           ./shiftleft image-scan -i gdc-python.tar
+           docker run --rm -e CHKP_CLOUDGUARD_ID -e CHKP_CLOUDGUARD_SECRET -v $PWD:$PWD -w $PWD checkpoint/shiftleft shiftleft image-scan -i gdc-python.tar
   container:
     runs-on: ubuntu-latest
     container: checkpoint/shiftleft:latest
     steps:
+      # Install Git into the shiftleft container
       - name: Install latest git 
         run: apk update && apk upgrade && apk add git
           
@@ -53,5 +49,5 @@ jobs:
         env: 
           CHKP_CLOUDGUARD_ID: ${{ secrets.CHKP_CLOUDGUARD_ID }}
           CHKP_CLOUDGUARD_SECRET: ${{ secrets.CHKP_CLOUDGUARD_SECRET }}
-        run: shiftleft --version; shiftleft code-scan -s .
+        run: shiftleft code-scan -s .
   
